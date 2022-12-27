@@ -25,7 +25,8 @@
   - TDS: I'd like this to fail safe (i.e. unlock if power goes out)
 
 ## Environmental
-- Thinking thermal needs too… winter likely enclosed to insulate against minimum temperatures and in summer have vents and fan to cool.
+- What environmentals do we need to consider? Thermal, yes (min/max temps). Shock/vibration, probably not unless making components (e.g., the lock).
+- What is the min/max temperature expected in the fort? Assume most parts are sheltered from the elements directly (no direct sunlight, no rain/snow on equipment, no wind). **TODO: Throw a temp sensor in the fort to gather data?**
 
 ## Communication and Control
 - Also, a keypad?  Or, where’s the wifi?
@@ -37,3 +38,4 @@
 # Open/Uncategorized Questions: 
 - What level of redundancy is desired? And where?
 - What is the budget? $100? $1000? $10000?  Not just piece-parts, but labor and material for say trenching the yard for wired connections, or adding solar per the above, and so on? (Examples are purposefully expensive sounding... I hope no yard trenching)
+- (For us) What ratings on enclosures and components exposed to the elements do we want?  IPxy
