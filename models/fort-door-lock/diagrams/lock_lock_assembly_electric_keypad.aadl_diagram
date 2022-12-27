@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="a9630b5a-7a29-4783-a6b7-4c1122e459f0" manual="true">
+    <element uuid="fad1f7d3-5c92-4b87-94a5-e193faba9d6c" manual="true">
+      <element uuid="bef5441c-e5d3-424e-ba2a-0d5b0cfd2d10" manual="true">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>lock_assembly_electric_keypad_new_connection</seg>
+      </bo>
+    </element>
+    <element uuid="ec89cb2e-5249-4605-bed8-68380ed3026a" manual="true">
+      <element uuid="184c9867-97ad-46ee-9704-199f31a39d32" manual="true">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>lock_assembly_electric_keypad_new_connection2</seg>
+      </bo>
+    </element>
+    <element uuid="6b7fe2db-71bb-44ec-b511-7093ad5f8085" manual="true">
+      <element uuid="1b5e9cec-1201-4aeb-a85f-aed47c3d7240" manual="true">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>lock_assembly_electric_keypad_new_connection3</seg>
+      </bo>
+    </element>
+    <element uuid="f441df4f-f709-4dd3-a8cd-e4a20cb59863" manual="true">
+      <element uuid="9f3ba6f6-bda7-432e-a441-bf69e1f544e4" manual="true" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>keypad_in</seg>
+        </bo>
+        <position x="207.2122459411621" y="28.0"/>
+      </element>
+      <element uuid="7d8f1050-a576-4c96-8400-5bd1414e744d" manual="true" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>lock_actuator_out</seg>
+        </bo>
+        <position x="162.74608612060547" y="160.0"/>
+      </element>
+      <element uuid="5b1486b6-7875-4f0b-a395-105bdafc832e" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>power_access</seg>
+        </bo>
+        <position y="6.0"/>
+      </element>
+      <element uuid="f4937bee-b913-404f-b5b8-39dd45bf2b3b" manual="true" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>release_button_in</seg>
+        </bo>
+        <position x="161.9908676147461" y="86.0"/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>board</seg>
+      </bo>
+      <position x="40.0" y="160.0"/>
+      <size width="280.0" height="220.0"/>
+    </element>
+    <element uuid="f648b12e-0f1f-4e2e-9b3e-8dc06339f0c8" manual="true">
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>i2c_bus</seg>
+      </bo>
+      <position x="60.0" y="50.0"/>
+      <size width="328.25787353515625" height="36.0"/>
+    </element>
+    <element uuid="152f9571-9d74-4636-9071-d8e21415433c" manual="true">
+      <element uuid="adb5bc77-4d8a-4cfa-bd1b-75fcc0227a4f" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>keypad_out</seg>
+        </bo>
+        <position y="36.0"/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>keypad</seg>
+      </bo>
+      <position x="470.0" y="120.0"/>
+      <size width="170.0" height="76.0"/>
+    </element>
+    <element uuid="043871fe-0b18-401e-813f-a029603f8f4d" manual="true">
+      <element uuid="e0ce316d-4ab4-49ea-9e95-136b762b860a" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>actuator_in</seg>
+        </bo>
+        <position y="38.0"/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>Lock_Actuator</seg>
+      </bo>
+      <position x="470.0" y="320.0"/>
+      <size width="172.10415649414062" height="78.0"/>
+    </element>
+    <element uuid="b040bb7d-4309-4475-b096-eb80ef395d0d" manual="true">
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>power_bus</seg>
+      </bo>
+      <position x="60.0" y="100.0"/>
+      <size width="190.0" height="36.0"/>
+    </element>
+    <element uuid="f75469d0-25d1-4935-8d4c-373c474bd481" manual="true">
+      <element uuid="b587795a-eabc-46db-87a1-c6a0319b2f8f" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>power_supply_new_feature</seg>
+        </bo>
+        <position y="18.0"/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>Power_Supply</seg>
+      </bo>
+      <position x="480.0" y="20.0"/>
+      <size width="175.0729217529297" height="58.0"/>
+    </element>
+    <element uuid="f3eab22a-b968-4d9e-839d-49d19738fe15" manual="true">
+      <element uuid="b883bc55-05de-45f8-a4a8-f77e2c165233" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>release_button_out</seg>
+        </bo>
+        <position y="40.0"/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>release_button</seg>
+      </bo>
+      <position x="470.0" y="220.0"/>
+      <size width="181.0169219970703" height="80.0"/>
+    </element>
+    <bo>
+      <seg>classifier</seg>
+      <seg>lock_assembly.electric_keypad</seg>
+    </bo>
+    <position/>
+    <size width="668.2578735351562" height="408.0"/>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>classifier</seg>
+      <seg>lock::lock_assembly.electric_keypad</seg>
+    </context>
+  </config>
+</diagram:Diagram>

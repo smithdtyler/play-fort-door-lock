@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="c170723d-95b8-4a96-b09d-3d4436b57658" manual="true">
+    <element uuid="8802a7a7-b293-437a-b32d-2c7f9ba3c3cf" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>board</seg>
+      </bo>
+      <position x="60.0" y="250.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="cc0c6c94-74e5-4651-8476-93285c9c4837" manual="true">
+      <element uuid="0dc29320-c629-4a86-883f-9eb9a4d94103" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>board.blackboard</seg>
+      </bo>
+      <position x="20.0" y="320.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="e250e1d4-6a03-4a9f-87c0-ae12c2d2c26e" manual="true">
+      <element uuid="974edd52-fc53-4120-9031-210452cdcb4f" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>board.MetroMini328V2</seg>
+      </bo>
+      <position x="211.0" y="337.0"/>
+      <size width="148.8893280029297" height="36.0"/>
+    </element>
+    <element uuid="8491b51c-87c4-4b6a-95e5-22886fde427d" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>keypad</seg>
+      </bo>
+      <position x="510.0" y="120.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="b60beb1b-ee58-45cb-9a2e-943a20cffa74" manual="true">
+      <element uuid="9a6f8990-4811-41e8-8a7f-533beecdcb6f" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>keypad.NeoKey_1x4</seg>
+      </bo>
+      <position x="510.0" y="200.0"/>
+      <size width="137.046875" height="36.0"/>
+    </element>
+    <element uuid="aaf96530-f789-4b4d-9531-bd9713d2c9d5" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>lock_actuator</seg>
+      </bo>
+      <position x="470.0" y="330.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="cfc5c1ac-3310-4df9-b679-b64a1dcabcd1" manual="true">
+      <element uuid="9dd463d2-16dd-4706-9434-36e50f8a9802" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>lock_actuator.magnetic_actuator</seg>
+      </bo>
+      <position x="488.0" y="388.0"/>
+      <size width="206.70181274414062" height="36.0"/>
+    </element>
+    <element uuid="36e0a0ff-53d5-4976-a733-e50eeda4e8c4" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>lock_assembly</seg>
+      </bo>
+      <position x="61.0" y="69.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="1557eb0b-4d1e-4878-9988-0b157afa9e47" manual="true">
+      <element uuid="2ddecf40-42ce-4441-b987-e428010f1193" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>lock_assembly.electric_keypad</seg>
+      </bo>
+      <position x="20.0" y="150.0"/>
+      <size width="210.0" height="40.0"/>
+    </element>
+    <element uuid="67c77cb7-37b9-4321-ab34-4186b97be333" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>lock_bus</seg>
+      </bo>
+      <position x="300.0" y="110.0"/>
+      <size width="150.0" height="50.0"/>
+    </element>
+    <element uuid="e012be23-50e3-43fc-b02d-058c2ed2f90c" manual="true">
+      <element uuid="4038879f-ec24-408d-ba7b-9bf3bc9f75b2" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>lock_bus.i2c</seg>
+      </bo>
+      <position x="310.0" y="180.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="9058bf09-113a-48f3-a32b-97c78811ab90" manual="true">
+      <element uuid="198662a4-d771-47d9-8bac-38998334c4f5" manual="true">
+        <bo>
+          <seg>implementation_extension</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>lock_bus.sparkfun_qwiic</seg>
+      </bo>
+      <position x="300.0" y="240.0"/>
+      <size width="158.5182342529297" height="36.0"/>
+    </element>
+    <element uuid="2a769f64-491e-4d8f-8f7f-ac92b7ed9e0f" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>power_supply</seg>
+      </bo>
+      <position x="690.0" y="290.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="0c29008b-f431-4072-a16f-96d5ac1feede" manual="true">
+      <element uuid="148aac9d-d88c-4d8c-9aca-5b37abb9b6d2" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>power_supply.generic_power_supply</seg>
+      </bo>
+      <position x="711.0" y="360.0"/>
+      <size width="233.39451599121094" height="36.0"/>
+    </element>
+    <element uuid="c89c2ea4-ca9b-41c7-a26c-28a84450c6e1" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>release_button</seg>
+      </bo>
+      <position x="680.0" y="120.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="c8e7a947-dfea-483f-9c3c-03cefbb287fe" manual="true">
+      <element uuid="9faaa968-4d23-4bae-b108-d6df5fdeffa1" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>release_button.Generic_Button</seg>
+      </bo>
+      <position x="680.0" y="210.0"/>
+      <size width="198.5703125" height="36.0"/>
+    </element>
+    <bo>
+      <seg>package</seg>
+      <seg>lock</seg>
+    </bo>
+    <position x="40.0" y="20.0"/>
+    <size width="944.3945159912109" height="440.0"/>
+  </element>
+  <config type="package" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>package</seg>
+      <seg>lock</seg>
+    </context>
+  </config>
+</diagram:Diagram>
