@@ -70,7 +70,7 @@
         <seg>subcomponent</seg>
         <seg>board</seg>
       </bo>
-      <position x="40.0" y="230.0"/>
+      <position x="80.0" y="200.0"/>
       <size width="280.0" height="220.0"/>
     </element>
     <element uuid="f648b12e-0f1f-4e2e-9b3e-8dc06339f0c8" manual="true">
@@ -97,6 +97,42 @@
       <size width="170.0" height="76.0"/>
     </element>
     <element uuid="043871fe-0b18-401e-813f-a029603f8f4d" manual="true">
+      <element uuid="05ee31e7-7e8f-48b1-8bbc-350595f957bd" manual="true">
+        <bo>
+          <seg>agree.assertion</seg>
+          <seg>open_on_power_loss</seg>
+          <seg>0</seg>
+        </bo>
+        <position x="130.0" y="50.0"/>
+        <size width="130.0" height="36.0"/>
+      </element>
+      <element uuid="71229e6b-a2ac-467a-a7b0-fa96151fa9c3" manual="true">
+        <bo>
+          <seg>agree.assumption</seg>
+          <seg>no_power</seg>
+          <seg>0</seg>
+        </bo>
+        <position y="130.0"/>
+        <size width="130.0" height="36.0"/>
+      </element>
+      <element uuid="1808aa3c-bc7d-4121-a461-f2fd3aca0981" manual="true">
+        <bo>
+          <seg>agree.property</seg>
+          <seg>has_power</seg>
+          <seg>0</seg>
+        </bo>
+        <position y="180.0"/>
+        <size width="130.0" height="36.0"/>
+      </element>
+      <element uuid="77a4de41-a0b9-4ccb-b8d8-e3f472a43ca6" manual="true">
+        <bo>
+          <seg>agree.property</seg>
+          <seg>locked</seg>
+          <seg>0</seg>
+        </bo>
+        <position x="280.0" y="140.0"/>
+        <size width="90.0" height="36.0"/>
+      </element>
       <element uuid="e0ce316d-4ab4-49ea-9e95-136b762b860a" manual="true" dockArea="left">
         <bo>
           <seg>feature</seg>
@@ -115,8 +151,8 @@
         <seg>subcomponent</seg>
         <seg>Lock_Actuator</seg>
       </bo>
-      <position x="470.0" y="350.0"/>
-      <size width="180.0" height="109.0"/>
+      <position x="460.0" y="370.0"/>
+      <size width="380.0" height="220.0"/>
     </element>
     <element uuid="80ac9352-de31-4049-8295-b25d27d9217c" manual="true">
       <bo>
@@ -183,8 +219,8 @@
       <seg>classifier</seg>
       <seg>lock_assembly.electric_keypad</seg>
     </bo>
-    <position/>
-    <size width="798.2578735351562" height="480.0"/>
+    <position x="-20.0" y="10.0"/>
+    <size width="870.0" height="610.0"/>
   </element>
   <config type="structure" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>
