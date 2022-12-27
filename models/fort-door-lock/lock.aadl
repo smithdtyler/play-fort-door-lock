@@ -6,21 +6,22 @@ public
 	end lock_assembly;
 
 	system implementation lock_assembly.electric_keypad
-		subcomponents
-			i2c_bus: bus lock_bus.sparkfun_qwiic;
-			board: system board.MetroMini328V2;
-			keypad: system keypad.NeoKey_1x4;
-			release_button: system release_button.Generic_Button;
-			Lock_Actuator: system lock_actuator.magnetic_actuator;
-			Power_Supply: system power_supply.generic_power_supply;
-			-- todo need to do bus access properly.
-			power_bus_5v_dc: bus;
-			power_bus_120v_ac: bus;
-		connections
-			lock_assembly_electric_keypad_new_connection: port release_button.release_button_out -> board.release_button_in;
-			lock_assembly_electric_keypad_new_connection2: port keypad.keypad_out -> board.keypad_in;
-			lock_assembly_electric_keypad_new_connection3: port board.lock_actuator_out -> Lock_Actuator.actuator_in;
-	end lock_assembly.electric_keypad;
+	subcomponents
+		i2c_bus: bus lock_bus.sparkfun_qwiic;
+		board: system board.MetroMini328V2;
+		keypad: system keypad.NeoKey_1x4;
+		release_button: system release_button.Generic_Button;
+		Lock_Actuator: system lock_actuator.magnetic_actuator;
+		Power_Supply_5v: system power_supply.generic_power_supply;
+		-- todo need to do bus access properly.
+		power_bus_5v_dc: bus power_5v;
+		power_bus_120v_ac: bus power_120vac.house_wall_power;
+		wall_power: system power_supply.generic_power_supply;
+	connections
+		lock_assembly_electric_keypad_new_connection: port release_button.release_button_out -> board.release_button_in;
+		lock_assembly_electric_keypad_new_connection2: port keypad.keypad_out -> board.keypad_in;
+		lock_assembly_electric_keypad_new_connection3: port board.lock_actuator_out -> Lock_Actuator.actuator_in;
+end lock_assembly.electric_keypad;
 
 	system keypad
 		features
@@ -37,7 +38,7 @@ public
 			keypad_in: in event data port;
 			release_button_in: in event data port;
 			lock_actuator_out: out event data port;
-			power_access: requires bus access PhysicalResources::ElectricalPower;
+			power_access: requires bus access power_5v;
 	end board;
 
 	bus lock_bus
@@ -64,20 +65,38 @@ public
 	end release_button.Generic_Button;
 
 	system power_supply
-		features
-			power_supply_new_feature: provides bus access PhysicalResources::ElectricalPower;
-	end power_supply;
+	features
+		power_supply_new_feature: provides bus access power_5v;
+		power_supply_new_feature2: provides bus access power_120vac;
+end power_supply;
 
 	system implementation power_supply.generic_power_supply
 	end power_supply.generic_power_supply;
 
 	system lock_actuator
-		features
-			actuator_in: in event data port;
-	end lock_actuator;
+	features
+		actuator_in: in event data port;
+		wall_power_access: requires bus access power_120vac;
+	annex agree {**
+		**};
+end lock_actuator;
 
 	system implementation lock_actuator.magnetic_actuator
-	end lock_actuator.magnetic_actuator;
+	annex agree {**
+			property locked = true ;
+			property has_power = true ;
+			-- Informally: 
+			-- We never want the lock to be engaged if power is lost (that is, we want it to fail open)
+			-- We only want the lock to be engaged when power is available and the release button is not engaged or the entry code has not been provided.
+			-- TODO timer on the release button
+			
+			-- TODO what are the "proper" ways to state the above in assume/guarantee terms? 
+			-- Use of lemmas feels like a hack, though maybe AGREE will detect mutual incompatabilities? 
+			lemma failsafe "Fail unlocked" : not (has_power) => not(locked); -- LOCKED OR has_power
+			-- This should break things. Select "lock_actuator.magnetic_actuator" and click Analyses -> AGREE -> Verify monolithically
+			lemma failsafe2 "bad lemma" : not (has_power) and locked;
+		**};
+end lock_actuator.magnetic_actuator;
 
 	bus power_5v
 	end power_5v;
