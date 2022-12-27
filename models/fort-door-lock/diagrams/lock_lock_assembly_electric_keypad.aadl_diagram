@@ -70,7 +70,7 @@
         <seg>subcomponent</seg>
         <seg>board</seg>
       </bo>
-      <position x="40.0" y="160.0"/>
+      <position x="40.0" y="230.0"/>
       <size width="280.0" height="220.0"/>
     </element>
     <element uuid="f648b12e-0f1f-4e2e-9b3e-8dc06339f0c8" manual="true">
@@ -78,7 +78,7 @@
         <seg>subcomponent</seg>
         <seg>i2c_bus</seg>
       </bo>
-      <position x="60.0" y="50.0"/>
+      <position x="50.0" y="30.0"/>
       <size width="328.25787353515625" height="36.0"/>
     </element>
     <element uuid="152f9571-9d74-4636-9071-d8e21415433c" manual="true">
@@ -93,7 +93,7 @@
         <seg>subcomponent</seg>
         <seg>keypad</seg>
       </bo>
-      <position x="470.0" y="120.0"/>
+      <position x="470.0" y="160.0"/>
       <size width="170.0" height="76.0"/>
     </element>
     <element uuid="043871fe-0b18-401e-813f-a029603f8f4d" manual="true">
@@ -102,21 +102,36 @@
           <seg>feature</seg>
           <seg>actuator_in</seg>
         </bo>
-        <position y="38.0"/>
+        <position y="69.0"/>
+      </element>
+      <element uuid="d4e19910-cdd5-4769-b24a-e4bf038154ff" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>wall_power_access</seg>
+        </bo>
+        <position y="24.0"/>
       </element>
       <bo>
         <seg>subcomponent</seg>
         <seg>Lock_Actuator</seg>
       </bo>
-      <position x="470.0" y="320.0"/>
-      <size width="172.10415649414062" height="78.0"/>
+      <position x="470.0" y="350.0"/>
+      <size width="180.0" height="109.0"/>
+    </element>
+    <element uuid="80ac9352-de31-4049-8295-b25d27d9217c" manual="true">
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>power_bus_120v_ac</seg>
+      </bo>
+      <position x="50.0" y="110.0"/>
+      <size width="328.25787353515625" height="36.0"/>
     </element>
     <element uuid="b040bb7d-4309-4475-b096-eb80ef395d0d" manual="true">
       <bo>
         <seg>subcomponent</seg>
-        <seg>power_bus</seg>
+        <seg>power_bus_5v_dc</seg>
       </bo>
-      <position x="60.0" y="100.0"/>
+      <position x="50.0" y="70.0"/>
       <size width="190.0" height="36.0"/>
     </element>
     <element uuid="f75469d0-25d1-4935-8d4c-373c474bd481" manual="true">
@@ -129,7 +144,7 @@
       </element>
       <bo>
         <seg>subcomponent</seg>
-        <seg>Power_Supply</seg>
+        <seg>Power_Supply_5v</seg>
       </bo>
       <position x="480.0" y="20.0"/>
       <size width="175.0729217529297" height="58.0"/>
@@ -146,15 +161,30 @@
         <seg>subcomponent</seg>
         <seg>release_button</seg>
       </bo>
-      <position x="470.0" y="220.0"/>
+      <position x="470.0" y="250.0"/>
       <size width="181.0169219970703" height="80.0"/>
+    </element>
+    <element uuid="767763de-7690-45c4-ae75-d27eb8b57a9f" manual="true">
+      <element uuid="7d69dcfc-9076-4415-85db-7cf5616c9bc0" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>power_supply_new_feature2</seg>
+        </bo>
+        <position y="15.0"/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>wall_power</seg>
+      </bo>
+      <position x="480.0" y="90.0"/>
+      <size width="190.0" height="60.0"/>
     </element>
     <bo>
       <seg>classifier</seg>
       <seg>lock_assembly.electric_keypad</seg>
     </bo>
     <position/>
-    <size width="668.2578735351562" height="408.0"/>
+    <size width="798.2578735351562" height="480.0"/>
   </element>
   <config type="structure" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>

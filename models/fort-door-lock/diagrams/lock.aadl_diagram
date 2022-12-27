@@ -132,6 +132,43 @@
       <position x="300.0" y="240.0"/>
       <size width="158.5182342529297" height="36.0"/>
     </element>
+    <element uuid="92f0c66a-1da3-44b2-a5ae-a6bec0414311" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>power_120vac</seg>
+      </bo>
+      <position x="850.0" y="20.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="0ad71a46-6e9f-437e-b0a4-123f249d6ad9" manual="true">
+      <element uuid="73af9689-5c78-4fba-a363-5e5c03126760" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>power_120vac.house_wall_power</seg>
+      </bo>
+      <position x="836.0" y="72.0"/>
+      <size width="214.87237548828125" height="36.0"/>
+    </element>
+    <element uuid="c4891081-b03d-43e4-a3d5-508c99eaf99e" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>power_12v</seg>
+      </bo>
+      <position x="670.0" y="20.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="2b315a19-e03d-4f08-b91a-0521ac8c54f7" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>power_5v</seg>
+      </bo>
+      <position x="480.0" y="20.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
     <element uuid="2a769f64-491e-4d8f-8f7f-ac92b7ed9e0f" manual="true">
       <bo>
         <seg>classifier</seg>
@@ -179,7 +216,7 @@
       <seg>lock</seg>
     </bo>
     <position x="40.0" y="20.0"/>
-    <size width="944.3945159912109" height="440.0"/>
+    <size width="1050.8723754882812" height="440.0"/>
   </element>
   <config type="package" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>

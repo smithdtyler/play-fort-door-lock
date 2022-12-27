@@ -6,20 +6,21 @@ public
 	end lock_assembly;
 
 	system implementation lock_assembly.electric_keypad
-	subcomponents
-		i2c_bus: bus lock_bus.sparkfun_qwiic;
-		board: system board.MetroMini328V2;
-		keypad: system keypad.NeoKey_1x4;
-		release_button: system release_button.Generic_Button;
-		Lock_Actuator: system lock_actuator.magnetic_actuator;
-		Power_Supply: system power_supply.generic_power_supply;
-		-- todo need to do bus access properly.
-		power_bus: bus;
-	connections
-		lock_assembly_electric_keypad_new_connection: port release_button.release_button_out -> board.release_button_in;
-		lock_assembly_electric_keypad_new_connection2: port keypad.keypad_out -> board.keypad_in;
-		lock_assembly_electric_keypad_new_connection3: port board.lock_actuator_out -> Lock_Actuator.actuator_in;
-end lock_assembly.electric_keypad;
+		subcomponents
+			i2c_bus: bus lock_bus.sparkfun_qwiic;
+			board: system board.MetroMini328V2;
+			keypad: system keypad.NeoKey_1x4;
+			release_button: system release_button.Generic_Button;
+			Lock_Actuator: system lock_actuator.magnetic_actuator;
+			Power_Supply: system power_supply.generic_power_supply;
+			-- todo need to do bus access properly.
+			power_bus_5v_dc: bus;
+			power_bus_120v_ac: bus;
+		connections
+			lock_assembly_electric_keypad_new_connection: port release_button.release_button_out -> board.release_button_in;
+			lock_assembly_electric_keypad_new_connection2: port keypad.keypad_out -> board.keypad_in;
+			lock_assembly_electric_keypad_new_connection3: port board.lock_actuator_out -> Lock_Actuator.actuator_in;
+	end lock_assembly.electric_keypad;
 
 	system keypad
 		features
@@ -71,10 +72,22 @@ end lock_assembly.electric_keypad;
 	end power_supply.generic_power_supply;
 
 	system lock_actuator
-	features
-		actuator_in: in event data port;
-end lock_actuator;
+		features
+			actuator_in: in event data port;
+	end lock_actuator;
 
 	system implementation lock_actuator.magnetic_actuator
 	end lock_actuator.magnetic_actuator;
+
+	bus power_5v
+	end power_5v;
+
+	bus power_12v
+	end power_12v;
+
+	bus power_120vac
+	end power_120vac;
+
+	bus implementation power_120vac.house_wall_power
+	end power_120vac.house_wall_power;
 end lock;
