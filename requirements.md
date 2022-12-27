@@ -17,6 +17,23 @@
 - Is a physical button, switch, or ability to actuate the lock from the inside acceptable to meet needs 1 and 3?
   - TDS: Yes. 
 
+## Power
+
+- power source in fort?  AC available?
+  - TDS: Fort has AC power (via outdoor extension cord). Also planning on solar, possibly DC battery. 
+  - TDS: I'd like the power usage to be relatively low - 10 watts would be good. 
+- desired/required battery backup?
+  - TDS: I'd like this to fail safe (i.e. unlock if power goes out)
+
+## Environmental
+- Thinking thermal needs too… winter likely enclosed to insulate against minimum temperatures and in summer have vents and fan to cool.
+
+## Communication and Control
+- Also, a keypad?  Or, where’s the wifi?
+  - TDS: The fort is close enough to our house that wifi makes sense as a monitoring option. 
+  - TDS: I was originally thinking a keypad for entering a passcode, wifi on the board. 
+- Will there be a keypad in addition to wifi?
+  - TDS: I think so.  
 
 # Open Questions: 
 - What requirements languges are would be useful for writing requirements? Is it worth the effort versus going direct to formal modeling? 
