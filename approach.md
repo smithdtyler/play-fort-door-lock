@@ -7,3 +7,5 @@
    3. Requirements Verification
    4. Code Generation
 
+# Open Questions
+- What requirements languages would be useful for writing requirements? Is it worth the effort versus going direct to formal modeling? 

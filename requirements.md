@@ -18,11 +18,10 @@
   - TDS: Yes. 
 
 ## Power
-
-- power source in fort?  AC available?
+- Power source in fort?  AC available?
   - TDS: Fort has AC power (via outdoor extension cord). Also planning on solar, possibly DC battery. 
   - TDS: I'd like the power usage to be relatively low - 10 watts would be good. 
-- desired/required battery backup?
+- Desired/required battery backup?
   - TDS: I'd like this to fail safe (i.e. unlock if power goes out)
 
 ## Environmental
@@ -35,5 +34,6 @@
 - Will there be a keypad in addition to wifi?
   - TDS: I think so.  
 
-# Open Questions: 
-- What requirements languges are would be useful for writing requirements? Is it worth the effort versus going direct to formal modeling? 
+# Open/Uncategorized Questions: 
+- What level of redundancy is desired? And where?
+- What is the budget? $100? $1000? $10000?  Not just piece-parts, but labor and material for say trenching the yard for wired connections, or adding solar per the above, and so on? (Examples are purposefully expensive sounding... I hope no yard trenching)
