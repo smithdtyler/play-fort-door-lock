@@ -1,6 +1,7 @@
 package lock
 public
 	with PhysicalResources;
+	with Base_Types;
 
 	system lock_assembly
 	end lock_assembly;
@@ -75,26 +76,33 @@ end power_supply;
 
 	system lock_actuator
 	features
-		actuator_in: in event data port;
-		wall_power_access: requires bus access power_120vac;
+		actuator_in: in event data port Base_Types::Boolean;
+		wall_power_access: requires bus access power_120vac; -- Might have to use a data type for this. 
+		power_in: in event data port Base_Types::Boolean;
+		physical_actuation: out event data port Base_Types::Boolean;
 	annex agree {**
+			
+			node rising_edge(signal: bool) returns (re: bool);
+			let
+				re = (signal and not prev(signal, false));
+			tel;
+			
+			assume has_power "unit has power" : power_in;
+			guarantee lock_actuates "lock when actuated" : prev(actuator_in, false) => physical_actuation;
+			guarantee lock_unactuates "unlock when not actuated" : not(pre(actuator_in)) => not(physical_actuation);
 		**};
 end lock_actuator;
 
+
+
 	system implementation lock_actuator.magnetic_actuator
 	annex agree {**
-			property locked = true ;
-			property has_power = true ;
-			-- Informally: 
-			-- We never want the lock to be engaged if power is lost (that is, we want it to fail open)
-			-- We only want the lock to be engaged when power is available and the release button is not engaged or the entry code has not been provided.
-			-- TODO timer on the release button
-			
-			-- TODO what are the "proper" ways to state the above in assume/guarantee terms? 
-			-- Use of lemmas feels like a hack, though maybe AGREE will detect mutual incompatabilities? 
-			lemma failsafe "Fail unlocked" : not (has_power) => not(locked); -- LOCKED OR has_power
-			-- This should break things. Select "lock_actuator.magnetic_actuator" and click Analyses -> AGREE -> Verify monolithically
-			lemma failsafe2 "bad lemma" : not (has_power) and locked;
+			eq sm : bool = FALSE -> 
+				if pre(actuator_in) and power_in then 
+						TRUE
+					else 
+						FALSE;
+			assign physical_actuation = sm;
 		**};
 end lock_actuator.magnetic_actuator;
 
