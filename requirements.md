@@ -37,5 +37,7 @@
 
 # Open/Uncategorized Questions: 
 - What level of redundancy is desired? And where?
+  - TDS: I want redundancy for safety needs (i.e. I want high assurance that the kids can exit) but do not need redundancy for security (if something fails and the door does not lock, that's OK). 
 - What is the budget? $100? $1000? $10000?  Not just piece-parts, but labor and material for say trenching the yard for wired connections, or adding solar per the above, and so on? (Examples are purposefully expensive sounding... I hope no yard trenching)
+  - TDS: Around $100, I'm planning to use budget as a nice design-trade metric, so we'll design a couple of options at various price points and risk levels. I'm already pondering solar options, so that won't be factored into the price. 
 - (For us) What ratings on enclosures and components exposed to the elements do we want?  IPxy
