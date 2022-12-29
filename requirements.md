@@ -17,6 +17,12 @@
 - Is a physical button, switch, or ability to actuate the lock from the inside acceptable to meet needs 1 and 3?
   - TDS: Yes. 
 
+## Safety
+- The door can always be opened from the inside
+- No harm to the occupants of the fort (sharp objects, falling objects)
+- No risk of electrical shock
+- No risk of fire
+
 ## Power
 - Power source in fort?  AC available?
   - TDS: Fort has AC power (via outdoor extension cord). Also planning on solar, possibly DC battery. 
