@@ -10,6 +10,7 @@ This section describes relevant use cases. Intent here is to capture general usa
 2023.01.02 (pg): This is at the brainstorming level currently.
 
 **TODO: Write textual use cases with success and alternate scenarios to inform the AADL modeling**
+
 Use Cases:
 - Install Lock System: How will the homeowner install the lock on the door and support equipment?
 - Activate System: How will the homeowner "turn it on"?
@@ -24,6 +25,7 @@ This section describes relevant modes and states. The list assumes the system is
 2023.01.02 (pg): This is at the brainstorming level currently. I expect this list to generate some debate.
 
 **TODO: Complete brainstorming, categorize as needed, connect with transitions, remove unneeded states after discussion/iterations**
+
 Modes and States (Assumes Installed)
 - Powered On: System has power but is not in any other state.
 - Powered Off: System has no power.
