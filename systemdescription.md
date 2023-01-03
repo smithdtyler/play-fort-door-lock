@@ -2,7 +2,9 @@
 This is a living document to describe aspects of the system we're not going to model but that helps inform the modeling. Some of this can be modeled in other tools, but isn't the current intent for the collaborators' objective.
 
 # System Overview
-This System of Interest is the lock system. The overall fort, door, etc. are outside the system boundary. We may still discuss/document aspects of this, but we are not designing a solar power system for the fort or deciding on fort construction material as part of a lock. External interfaces and the environment are still relevant and is discussed. TDS: In particular, note that the lock system does not actuate movement of the door itself.
+This System of Interest is the lock system. The overall fort, door, etc. are outside the system boundary. We may still discuss/document aspects of this, but we are not designing a solar power system for the fort or deciding on fort construction material as part of a lock. External interfaces and the environment are still relevant and is discussed. 
+
+TDS: In particular, note that the lock system does not actuate movement of the door itself.
 
 ## Use Cases
 This section describes relevant use cases. Intent here is to capture general usage goals and what can go right or wrong.
@@ -23,6 +25,7 @@ Use Cases:
 This section describes relevant modes and states. The list assumes the system is installed, skipping disassembled/assembled or "in transit" type states.
 
 2023.01.02 (pg): This is at the brainstorming level currently. I expect this list to generate some debate.
+
 2023.01.02 (TDS): Note that the terms "modes" and "states" do have significance in AADL-land. Unfortunately, there are several methods for specifying modes and states. I assume for the purposes of this document we're writing that we'll use this list of states as a basis for an AGREE specification. 
 However, for future work we might also consider the AADL Error Modeling Annex, AADL Behavior Annex, or AADL mode and mode-transition language features. 
 
