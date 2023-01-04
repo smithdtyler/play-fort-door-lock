@@ -11,11 +11,13 @@ This section describes relevant use cases. Intent here is to capture general usa
 
 Use Cases:
 - Install Lock System: How will the homeowner install the lock on the door and support equipment?
+- Maintain System: How will the homeowner adjust/maintain the system over time? Specifically thinking adjusting for seasons (i.e., temperature changes).
 - Activate System: How will the homeowner "turn it on"?
 - Deactivate System: How will the homeowner "turn it off"?
 - Monitor System: How will the homeowner monitor the health and status of system?
 - Safely Open Door: How will a person access the fort, which will exercise the lock?
 - Safely Close Door: How does a person leave the fort in a secure (locked) state?
+- Play in the Fort: What will normal play be? How will the system support continuous in/out, door propped open, a ball being bounced around and impacting system equipment?
 
 ## States
 This section describes system and component states. The list assumes the system is installed, skipping disassembled/assembled or "in transit" type states. The current intent uses information in this section as a basis for an AGREE specification. Future work may expand this to AADL Error Modeling Annex, AADL Behavior Annex, or AADL mode and mode-transition language features.
