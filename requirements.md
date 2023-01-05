@@ -15,7 +15,9 @@
   - Mice are going to be hard to keep out entirely, since they can fit through very small spaces. 
   - I'm planning to make this tight enough to keep our anything rat-size or larger. 
 - Is a physical button, switch, or ability to actuate the lock from the inside acceptable to meet needs 1 and 3?
-  - TDS: Yes. 
+  - TDS: Yes.
+
+Question: Can you expand on monitoring against critters and teenagers more? The original discussion was a "wifi enabled" system, which to me implies status to a remote system that may warn of critters and teenagers. Is this required? Alternatives may include an alarm system if motion is detected without authorized entry or outside of normal hours (e.g., 2am entry). Another alternative is local logging or status indicators on the lock system's processor that can be periodically checked.
 
 ## Safety
 - The door can always be opened from the inside

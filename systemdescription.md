@@ -19,6 +19,33 @@ Use Cases:
 - Safely Close Door: How does a person leave the fort in a secure (locked) state?
 - Play in the Fort: What will normal play be? How will the system support continuous in/out, door propped open, a ball being bounced around and impacting system equipment?
 
+## Elements
+This section describes elements of the lock system as well as elements outside the system boundary relevant to the lock system.
+
+- Fort: A required, physical component that is outside the system boundary. Essentially where all elements (except optional remote) is installed.
+- Door Assembly: The door and door frame. The door frame is assumed to be where part of the lock assembly is installed. Physical components.
+- Lock Assembly: The bolt and box of a lock. Using generic lock terminology, although implementation may not use the same terminololgy. The two minimum components of a lock but avoiding overly generic terms like "receptacle".  Physical components.
+- Processor Assembly: The physical and logical components to suppor the lock assembly.
+  - Enclosure: A physical component protecting elements of the processor assembly from the environment and accidental damage from normal play.
+  - Power Supply: A logical construct of a physical component (or components) that minimally powers processor assembly components and may provide power to external components.  May also include backups, filtering/conditioning, power conversion, and more.
+  - Processor: The physical, embedded computer that includes a processor to be the "brains" of the lock system.
+  - Display: Physical indicators of status. May be a monitor, LCD display, or simple status LEDs.
+  - Wired I/O: Any GPIO, serial, I2C, etc. interfaces between components. Assumes the system won't be fully wireless.
+  - Connectors: The physical connector between wired i/o interfaces. Environmental features should be considered.
+  - Wireless I/O (Optional?): The wireless interface(s) such as WiFi, Bluetooth, Zigbee, or any ISM connection between the processor assembly and any remote system. This may be used for monitoring, but is considered optional otherwise.
+  - Wireless Antenna: The antenna for the wireless i/o.
+  - "The Software": A placeholder to capture important software processes.
+- Conduit (Optional?): Protects cabling from the environment, critters, and normal play. Technically optional until a need is validated.
+- Cabling: Any cables (cat5/6, twisted pair, power, ...) between components. Assumes the system won't be fully wireless.
+- Entry Pad: The device on the outside of the fort that is used to trigger user authentication for safe entry to the fort through the door. Pad implies more than a button is required for user authentication.
+- Exit Button: The device on the inside of the fort that allows for safe exit from the fort through the door. Button implies no authentication is required to exit, so a simple button (or equiv) is sufficient.
+- Motion Sensor (Optional?): Allows a remote monitor to detect motion inside the fort. This may be used for monitoring, but is considered optional otherwise. 
+- Door Sensor (Optional?): A physical component installed on the door assembly to determine if the door is open/closed.  Example may be a hall effect sensor.
+- Remote Processor Assembly (Optional?): This may be used for monitoring, but is considered optional otherwise.
+  - Processor
+  - Wireless I/O
+  - Wireless Antenna
+
 ## States
 This section describes system and component states. The list assumes the system is installed, skipping disassembled/assembled or "in transit" type states. The current intent uses information in this section as a basis for an AGREE specification. Future work may expand this to AADL Error Modeling Annex, AADL Behavior Annex, or AADL mode and mode-transition language features.
 
@@ -59,6 +86,7 @@ TDS: Events to drive transitions
 | Fort           | An outdoor structure with walls and a door. | | 
 | Lock System    | A system providing the capability to prevent the fort door from being opened in some circumstances. | |
 | Lock Mechanism | The physical mechanism by which the Lock System prevents the door from opening. | | 
+| Normal Play    | The activities by humans within the fort expected of kids and adults using a fort. As an outdoor environment, kids may be dirty (sand, dirt, mud), play more carelessly than inside (throw balls, swing sticks).  Abnormal activity would be striking components of the lock system with a hammer and destructive intent and other forms of purposeful vandalism.  | | 
 | User | A human who can interact with the lock | |
 | User Authentication | A part of the Lock System that can verify a user-provided authorization artifact (e.g., physical key, keycode) | | 
 
