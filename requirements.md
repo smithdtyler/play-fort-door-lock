@@ -17,7 +17,14 @@
 - Is a physical button, switch, or ability to actuate the lock from the inside acceptable to meet needs 1 and 3?
   - TDS: Yes.
 
-Question: Can you expand on monitoring against critters and teenagers more? The original discussion was a "wifi enabled" system, which to me implies status to a remote system that may warn of critters and teenagers. Is this required? Alternatives may include an alarm system if motion is detected without authorized entry or outside of normal hours (e.g., 2am entry). Another alternative is local logging or status indicators on the lock system's processor that can be periodically checked.
+- Question: Can you expand on monitoring against critters and teenagers more? 
+  - TDS: For the purpose of the core project, I'd just like to log door open/close events. 
+
+- The original discussion was a "wifi enabled" system, which to me implies status to a remote system that may warn of critters and teenagers. Is this required?
+  - TDS: Not required for this project. It's more of a tangent. 
+
+- Alternatives may include an alarm system if motion is detected without authorized entry or outside of normal hours (e.g., 2am entry). Another alternative is local logging or status indicators on the lock system's processor that can be periodically checked.
+  - TDS: I'd like to have a notification system that alerts me to motion in the fort outside of regular play hours. I suppose the simple solution would be a Ring-style security camera with motion detection, but where's the fun in that? Either way, a security alert system is outside of the scope of this project, which is the lock system itself. 
 
 ## Safety
 - The door can always be opened from the inside
@@ -33,8 +40,12 @@ Question: Can you expand on monitoring against critters and teenagers more? The 
   - TDS: I'd like this to fail safe (i.e. unlock if power goes out)
 
 ## Environmental
-- What environmentals do we need to consider? Thermal, yes (min/max temps). Shock/vibration, probably not unless making components (e.g., the lock).
-- What is the min/max temperature expected in the fort? Assume most parts are sheltered from the elements directly (no direct sunlight, no rain/snow on equipment, no wind). **TODO: Throw a temp sensor in the fort to gather data?**
+- What environmentals do we need to consider? 
+  - Thermal, yes (min/max temps). 
+  - Shock/vibration, probably not unless making components (e.g., the lock).
+- What is the min/max temperature expected in the fort? Assume most parts are sheltered from the elements directly (no direct sunlight, no rain/snow on equipment, no wind). 
+  - The fort has no environmental control and is off the ground. Its temperature is basically the temperature outside. 
+  - **TODO: Throw a temp sensor in the fort to gather data?** Issue created: #2
 
 ## Communication and Control
 - Also, a keypad?  Or, where’s the wifi?
