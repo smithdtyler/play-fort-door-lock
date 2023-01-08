@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="3a80d5c1-e95a-4daa-928a-b52fdc7d68c6" manual="true">
+    <element uuid="75d495ae-e41b-40dc-9e6a-4173754e3bb1" manual="true" dockArea="left">
+      <bo>
+        <seg>feature</seg>
+        <seg>i2c_access</seg>
+      </bo>
+      <position y="184.0"/>
+    </element>
+    <element uuid="811aaa6e-3d7b-4977-8231-be7cb250d450" manual="true" dockArea="left">
+      <bo>
+        <seg>feature</seg>
+        <seg>power</seg>
+      </bo>
+      <position y="139.0"/>
+    </element>
+    <element uuid="221c2348-949e-4a4b-ad39-26e915e2680f" manual="true">
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>Flash</seg>
+      </bo>
+      <position x="240.0" y="50.0"/>
+      <size width="110.0" height="36.0"/>
+    </element>
+    <element uuid="7589d2eb-b5fb-4ce3-b587-51a513b44a3a" manual="true">
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>PSRAM</seg>
+      </bo>
+      <position x="250.0" y="120.0"/>
+      <size width="122.37899780273438" height="36.0"/>
+    </element>
+    <element uuid="173824c7-a524-4c98-9533-80c55f746a83" manual="true">
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>SP32S2</seg>
+      </bo>
+      <position x="30.0" y="50.0"/>
+      <size width="110.0" height="40.0"/>
+    </element>
+    <bo>
+      <seg>classifier</seg>
+      <seg>controller_board.AdafruitMetroESP32S2</seg>
+    </bo>
+    <position x="-150.0"/>
+    <size width="542.3789978027344" height="230.0"/>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>classifier</seg>
+      <seg>partslibrary::controller_board.AdafruitMetroESP32S2</seg>
+    </context>
+  </config>
+</diagram:Diagram>

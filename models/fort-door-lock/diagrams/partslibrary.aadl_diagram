@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="7ecaf493-67da-481d-ab67-d805aebc4fde" manual="true">
+    <element uuid="ea29eff1-e00a-48e8-b51f-0d21ddd51c04" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>controller_board</seg>
+      </bo>
+      <position x="40.0" y="60.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="fe83dee9-2133-450a-88cd-99d5ecce84d8" manual="true">
+      <element uuid="eb6259be-38e5-48cc-89ed-eb86a2a19552" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>controller_board.AdafruitMetroESP32S2</seg>
+      </bo>
+      <position x="30.0" y="140.0"/>
+      <size width="251.91014099121094" height="36.0"/>
+    </element>
+    <element uuid="056bbafb-580c-4bd3-af02-12543fc3718e" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>display</seg>
+      </bo>
+      <position x="364.0" y="175.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="c1c03bf5-4d05-41ce-95ec-d59938c9a66f" manual="true">
+      <element uuid="e5938397-8a9d-4ab8-b3de-810dee82d5d5" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>display.QuadAlphanumericDisplay</seg>
+      </bo>
+      <position x="477.0" y="233.0"/>
+      <size width="217.06640625" height="36.0"/>
+    </element>
+    <element uuid="59cae2f6-5982-4ecb-b9ad-f440d4ccf788" manual="true">
+      <element uuid="efb559c2-b5ad-445d-a962-44e98e5710b8" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>Electromagnet.FiveVoltElectromagnet</seg>
+      </bo>
+      <position x="340.0" y="460.0"/>
+      <size width="237.8085479736328" height="48.0"/>
+    </element>
+    <element uuid="1a107552-a956-4c21-b02c-922e01742e5b" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>humidity_val</seg>
+      </bo>
+      <position x="400.0" y="110.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="f6e2762c-53bb-40b4-a69f-3fa13f36b7f3" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>sensor</seg>
+      </bo>
+      <position x="40.0" y="200.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="0c98b5ca-2454-4c07-a73f-1db478dcc10b" manual="true">
+      <element uuid="95eb0228-1ce4-4c6b-afdb-815225f30c6d" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>sensor.AdafruitAHT20Temp_HumiditySensor</seg>
+      </bo>
+      <position x="40.0" y="290.0"/>
+      <size width="280.77728271484375" height="36.0"/>
+    </element>
+    <element uuid="58bc649f-0b92-4b45-af85-e51f5292b926" manual="true">
+      <element uuid="14c8fea9-5041-4c1d-b70b-4a12fcb57b19" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>sensor.AdafruitTCA8418Keypad</seg>
+      </bo>
+      <position x="360.0" y="290.0"/>
+      <size width="205.22393798828125" height="36.0"/>
+    </element>
+    <element uuid="dbd5ea41-b251-43e2-8aab-a5ec10bacd5b" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>temperature_val</seg>
+      </bo>
+      <position x="396.0" y="57.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="74597702-a22d-4a73-850d-a57f8b25ae97" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>Tensilica</seg>
+      </bo>
+      <position x="70.0" y="390.0"/>
+      <size width="130.0" height="36.0"/>
+    </element>
+    <element uuid="e72f18f4-b311-42b0-be6f-0ec844ef08fc" manual="true">
+      <element uuid="8cc2aa23-9533-4d64-ac38-eee1326e125b" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>Tensilica.ESP32_S2_240MHz</seg>
+      </bo>
+      <position x="70.0" y="480.0"/>
+      <size width="192.61326599121094" height="36.0"/>
+    </element>
+    <bo>
+      <seg>package</seg>
+      <seg>partslibrary</seg>
+    </bo>
+    <position/>
+    <size width="720.0" height="580.0"/>
+  </element>
+  <config type="package" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>package</seg>
+      <seg>partslibrary</seg>
+    </context>
+  </config>
+</diagram:Diagram>

@@ -1,0 +1,70 @@
+package partslibrary
+public
+
+	with SEI;
+
+	data temperature_val
+	end temperature_val;
+
+	data humidity_val
+	end humidity_val;
+
+	system controller_board
+		features
+			i2c_access: requires bus access;
+			power: requires data access;
+	end controller_board;
+
+	-- https://www.adafruit.com/product/4775
+	system implementation controller_board.AdafruitMetroESP32S2
+		subcomponents
+			SP32S2: processor Tensilica.ESP32_S2_240MHz;
+			Flash: memory;
+			PSRAM: memory;
+		properties
+			SEI::NetWeight => 0.0225kg;
+			Memory_Size => 4 MByte applies to Flash;
+			Memory_Size => 2 MByte applies to PSRAM;
+
+	end controller_board.AdafruitMetroESP32S2;
+
+	system sensor
+	end sensor;
+
+	-- https://www.adafruit.com/product/4566
+	system implementation sensor.AdafruitAHT20Temp_HumiditySensor
+	end sensor.AdafruitAHT20Temp_HumiditySensor;
+
+	-- https://www.adafruit.com/product/4918
+	system implementation sensor.AdafruitTCA8418Keypad
+	end sensor.AdafruitTCA8418Keypad;
+
+	system display
+	end display;
+
+	-- https://www.adafruit.com/product/1911
+	system implementation display.QuadAlphanumericDisplay
+	end display.QuadAlphanumericDisplay;
+
+	processor Tensilica
+	end Tensilica;
+
+	processor implementation Tensilica.ESP32_S2_240MHz
+	end Tensilica.ESP32_S2_240MHz;
+
+	device Electromagnet
+	end Electromagnet;
+	
+	-- https://www.adafruit.com/product/3872
+	device implementation Electromagnet.FiveVoltElectromagnet
+	end Electromagnet.FiveVoltElectromagnet;
+	
+	
+	device SolenoidLock
+	end SolenoidLock;
+	
+	-- https://www.adafruit.com/product/1512
+	device implementation SolenoidLock.TwelveVoltSolenoid
+	end SolenoidLock.TwelveVoltSolenoid;
+	
+end partslibrary;
