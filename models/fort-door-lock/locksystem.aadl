@@ -1,4 +1,4 @@
-package lock
+package locksystem
 public
 	with partslibrary;
 
@@ -28,4 +28,4 @@ public
 		-- 
 	end lock_assembly.electric_keypad;
 
-end lock;
+end locksystem;
