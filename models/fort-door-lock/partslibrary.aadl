@@ -67,4 +67,11 @@ public
 	device implementation SolenoidLock.TwelveVoltSolenoid
 	end SolenoidLock.TwelveVoltSolenoid;
 	
+	system cryptochip
+	end cryptochip;
+	
+	-- https://www.adafruit.com/product/4314
+	system implementation cryptochip.ATECC608BreakoutBoard
+	end cryptochip.ATECC608BreakoutBoard;
+	
 end partslibrary;
