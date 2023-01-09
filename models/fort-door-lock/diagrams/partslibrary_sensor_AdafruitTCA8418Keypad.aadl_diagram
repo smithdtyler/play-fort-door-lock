@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="55fae8a6-54e9-470c-802b-26244c5e25ec" manual="true">
+    <element uuid="b69f37b2-902b-4ee7-b7c7-ea4d63bf5154" manual="true" dockArea="left">
+      <bo>
+        <seg>feature</seg>
+        <seg>i2c</seg>
+      </bo>
+      <position y="83.0"/>
+    </element>
+    <element uuid="7a7920cd-5be0-4ff9-8333-51b5d1917298" manual="true" dockArea="left">
+      <bo>
+        <seg>feature</seg>
+        <seg>keys_out</seg>
+      </bo>
+      <position y="38.0"/>
+    </element>
+    <bo>
+      <seg>classifier</seg>
+      <seg>sensor.AdafruitTCA8418Keypad</seg>
+    </bo>
+    <position x="130.0" y="100.0"/>
+    <size width="260.0" height="150.0"/>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>classifier</seg>
+      <seg>partslibrary::sensor.AdafruitTCA8418Keypad</seg>
+    </context>
+  </config>
+</diagram:Diagram>

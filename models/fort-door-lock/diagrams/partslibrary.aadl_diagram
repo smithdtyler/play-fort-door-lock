@@ -72,32 +72,6 @@
       <position x="40.0" y="200.0"/>
       <size width="130.0" height="36.0"/>
     </element>
-    <element uuid="0c98b5ca-2454-4c07-a73f-1db478dcc10b" manual="true">
-      <element uuid="95eb0228-1ce4-4c6b-afdb-815225f30c6d" manual="true">
-        <bo>
-          <seg>realization</seg>
-        </bo>
-      </element>
-      <bo>
-        <seg>classifier</seg>
-        <seg>sensor.AdafruitAHT20Temp_HumiditySensor</seg>
-      </bo>
-      <position x="40.0" y="290.0"/>
-      <size width="280.77728271484375" height="36.0"/>
-    </element>
-    <element uuid="58bc649f-0b92-4b45-af85-e51f5292b926" manual="true">
-      <element uuid="14c8fea9-5041-4c1d-b70b-4a12fcb57b19" manual="true">
-        <bo>
-          <seg>realization</seg>
-        </bo>
-      </element>
-      <bo>
-        <seg>classifier</seg>
-        <seg>sensor.AdafruitTCA8418Keypad</seg>
-      </bo>
-      <position x="360.0" y="290.0"/>
-      <size width="205.22393798828125" height="36.0"/>
-    </element>
     <element uuid="dbd5ea41-b251-43e2-8aab-a5ec10bacd5b" manual="true">
       <bo>
         <seg>classifier</seg>

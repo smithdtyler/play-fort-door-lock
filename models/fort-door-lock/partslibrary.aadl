@@ -2,6 +2,7 @@ package partslibrary
 public
 
 	with SEI;
+	with Base_Types;
 
 	data temperature_val
 	end temperature_val;
@@ -9,9 +10,21 @@ public
 	data humidity_val
 	end humidity_val;
 
+	data key_press
+	end key_press;
+
+	bus lock_bus
+	end lock_bus;
+
+	bus implementation lock_bus.i2c
+	end lock_bus.i2c;
+
+	bus implementation lock_bus.sparkfun_qwiic extends lock_bus.i2c
+	end lock_bus.sparkfun_qwiic;
+
 	system controller_board
 		features
-			i2c_access: requires bus access;
+			i2c_access: provides bus access lock_bus.sparkfun_qwiic;
 			power: requires data access;
 	end controller_board;
 
@@ -29,17 +42,36 @@ public
 	end controller_board.AdafruitMetroESP32S2;
 
 	system sensor
+		features
+			i2c: requires bus access lock_bus.sparkfun_qwiic;
 	end sensor;
 
+	system keypad extends sensor
+		features
+			keys_out: out event data port key_press;
+	end keypad;
+
+	-- https://www.adafruit.com/product/4980
+	system implementation keypad.NeoKey_1x4
+	end keypad.NeoKey_1x4;
+
+	system temphumiditysensor extends sensor
+		features
+			humidity_out: out event data port humidity_val;
+			temp_out: out event data port temperature_val;
+	end temphumiditysensor;
+
 	-- https://www.adafruit.com/product/4566
-	system implementation sensor.AdafruitAHT20Temp_HumiditySensor
-	end sensor.AdafruitAHT20Temp_HumiditySensor;
+	system implementation temphumiditysensor.AdafruitAHT20Temp_HumiditySensor
+	end temphumiditysensor.AdafruitAHT20Temp_HumiditySensor;
 
 	-- https://www.adafruit.com/product/4918
-	system implementation sensor.AdafruitTCA8418Keypad
-	end sensor.AdafruitTCA8418Keypad;
+	system implementation keypad.AdafruitTCA8418Keypad
+	end keypad.AdafruitTCA8418Keypad;
 
 	system display
+		features
+			i2c: requires bus access lock_bus.sparkfun_qwiic;
 	end display;
 
 	-- https://www.adafruit.com/product/1911
@@ -54,24 +86,101 @@ public
 
 	device Electromagnet
 	end Electromagnet;
-	
+
 	-- https://www.adafruit.com/product/3872
 	device implementation Electromagnet.FiveVoltElectromagnet
 	end Electromagnet.FiveVoltElectromagnet;
-	
-	
+
 	device SolenoidLock
 	end SolenoidLock;
-	
+
 	-- https://www.adafruit.com/product/1512
 	device implementation SolenoidLock.TwelveVoltSolenoid
 	end SolenoidLock.TwelveVoltSolenoid;
-	
+
 	system cryptochip
+		features
+			i2c: requires bus access lock_bus.sparkfun_qwiic;
 	end cryptochip;
-	
+
 	-- https://www.adafruit.com/product/4314
 	system implementation cryptochip.ATECC608BreakoutBoard
+		-- TODO how do we write AGREE statements about crypto rules?
 	end cryptochip.ATECC608BreakoutBoard;
+
+	system release_button
+		features
+			release_button_out: out event data port Base_Types::Boolean;
+	end release_button;
+
+	system board
+		features
+			keypad_in: in event data port partslibrary::key_press;
+			release_button_in: in event data port Base_Types::Boolean;
+			lock_actuator_out: out event data port Base_Types::Boolean;
+			power_access: requires bus access power_5v;
+	end board;
+
+	system implementation board.blackboard
+	end board.blackboard;
+
+	-- https://www.adafruit.com/product/5597
+	system implementation board.MetroMini328V2
+	end board.MetroMini328V2;
+
+	system implementation release_button.Generic_Button
+	end release_button.Generic_Button;
+
+	system power_supply
+		features
+			power_supply_5vdc: provides bus access power_5v;
+			power_supply_12vdc: provides bus access power_12v;
+			power_supply_120vac: provides bus access power_120vac;
+	end power_supply;
+
+	system implementation power_supply.generic_power_supply
+	end power_supply.generic_power_supply;
+
+	system lock_actuator
+		features
+			actuator_in: in event data port Base_Types::Boolean;
+			wall_power_access: requires bus access power_120vac; -- Might have to use a data type for this. 
+			power_in: in event data port Base_Types::Boolean;
+			physical_actuation: out event data port Base_Types::Boolean;
+		annex agree {**
+			
+			node rising_edge(signal: bool) returns (re: bool);
+			let
+				re = (signal and not prev(signal, false));
+			tel;
+			
+			assume has_power "unit has power" : power_in;
+			guarantee lock_actuates "lock when actuated" : prev(actuator_in, false) => physical_actuation;
+			guarantee lock_unactuates "unlock when not actuated" : not(pre(actuator_in)) => not(physical_actuation);
+		**};
+	end lock_actuator;
+
+	system implementation lock_actuator.magnetic_actuator
+		annex agree {**
+			eq sm : bool = FALSE -> 
+				if pre(actuator_in) and power_in then 
+						TRUE
+					else 
+						FALSE;
+			assign physical_actuation = sm;
+		**};
+	end lock_actuator.magnetic_actuator;
+
+	bus power_5v
+	end power_5v;
+
+	bus power_12v
+	end power_12v;
+
+	bus power_120vac
+	end power_120vac;
+
+	bus implementation power_120vac.house_wall_power
+	end power_120vac.house_wall_power;
 	
 end partslibrary;

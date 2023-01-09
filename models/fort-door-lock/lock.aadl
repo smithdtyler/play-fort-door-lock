@@ -1,120 +1,31 @@
 package lock
 public
-	with PhysicalResources;
-	with Base_Types;
+	with partslibrary;
 
 	system lock_assembly
 	end lock_assembly;
 
 	system implementation lock_assembly.electric_keypad
-	subcomponents
-		i2c_bus: bus lock_bus.sparkfun_qwiic;
-		board: system board.MetroMini328V2;
-		keypad: system keypad.NeoKey_1x4;
-		release_button: system release_button.Generic_Button;
-		Lock_Actuator: system lock_actuator.magnetic_actuator;
-		Power_Supply_5v: system power_supply.generic_power_supply;
-		-- todo need to do bus access properly.
-		power_bus_5v_dc: bus power_5v;
-		power_bus_120v_ac: bus power_120vac.house_wall_power;
-		wall_power: system power_supply.generic_power_supply;
-	connections
-		lock_assembly_electric_keypad_new_connection: port release_button.release_button_out -> board.release_button_in;
-		lock_assembly_electric_keypad_new_connection2: port keypad.keypad_out -> board.keypad_in;
-		lock_assembly_electric_keypad_new_connection3: port board.lock_actuator_out -> Lock_Actuator.actuator_in;
-end lock_assembly.electric_keypad;
+		subcomponents
+			i2c_bus: bus partslibrary::lock_bus.sparkfun_qwiic;
+			board: system partslibrary::board.MetroMini328V2;
+			keypad: system partslibrary::keypad.NeoKey_1x4;
+			release_button: system partslibrary::release_button.Generic_Button;
+			Lock_Actuator: system partslibrary::lock_actuator.magnetic_actuator;
+			Power_Supply_5v: system partslibrary::power_supply.generic_power_supply;
+			-- todo need to do bus access properly.
+			power_bus_5v_dc: bus partslibrary::power_5v;
+			power_bus_120v_ac: bus partslibrary::power_120vac.house_wall_power;
+			wall_power: system partslibrary::power_supply.generic_power_supply;
+		connections
+			lock_assembly_electric_keypad_new_connection: port release_button.release_button_out -> board.release_button_in;
+			lock_assembly_electric_keypad_new_connection2: port keypad.keys_out -> board.keypad_in;
+			lock_assembly_electric_keypad_new_connection3: port board.lock_actuator_out -> Lock_Actuator.actuator_in;
+		--
+		-- 
+		-- TODO AGREE State Machine here
+		-- 
+		-- 
+	end lock_assembly.electric_keypad;
 
-	system keypad
-		features
-			keypad_out: out event data port;
-	end keypad;
-
-	system release_button
-		features
-			release_button_out: out event data port;
-	end release_button;
-
-	system board
-		features
-			keypad_in: in event data port;
-			release_button_in: in event data port;
-			lock_actuator_out: out event data port;
-			power_access: requires bus access power_5v;
-	end board;
-
-	bus lock_bus
-	end lock_bus;
-
-	bus implementation lock_bus.i2c
-	end lock_bus.i2c;
-
-	system implementation board.blackboard
-	end board.blackboard;
-
-	bus implementation lock_bus.sparkfun_qwiic extends lock_bus.i2c
-	end lock_bus.sparkfun_qwiic;
-
-	-- https://www.adafruit.com/product/4980
-	system implementation keypad.NeoKey_1x4
-	end keypad.NeoKey_1x4;
-
-	-- https://www.adafruit.com/product/5597
-	system implementation board.MetroMini328V2
-	end board.MetroMini328V2;
-
-	system implementation release_button.Generic_Button
-	end release_button.Generic_Button;
-
-	system power_supply
-	features
-		power_supply_new_feature: provides bus access power_5v;
-		power_supply_new_feature2: provides bus access power_120vac;
-end power_supply;
-
-	system implementation power_supply.generic_power_supply
-	end power_supply.generic_power_supply;
-
-	system lock_actuator
-	features
-		actuator_in: in event data port Base_Types::Boolean;
-		wall_power_access: requires bus access power_120vac; -- Might have to use a data type for this. 
-		power_in: in event data port Base_Types::Boolean;
-		physical_actuation: out event data port Base_Types::Boolean;
-	annex agree {**
-			
-			node rising_edge(signal: bool) returns (re: bool);
-			let
-				re = (signal and not prev(signal, false));
-			tel;
-			
-			assume has_power "unit has power" : power_in;
-			guarantee lock_actuates "lock when actuated" : prev(actuator_in, false) => physical_actuation;
-			guarantee lock_unactuates "unlock when not actuated" : not(pre(actuator_in)) => not(physical_actuation);
-		**};
-end lock_actuator;
-
-
-
-	system implementation lock_actuator.magnetic_actuator
-	annex agree {**
-			eq sm : bool = FALSE -> 
-				if pre(actuator_in) and power_in then 
-						TRUE
-					else 
-						FALSE;
-			assign physical_actuation = sm;
-		**};
-end lock_actuator.magnetic_actuator;
-
-	bus power_5v
-	end power_5v;
-
-	bus power_12v
-	end power_12v;
-
-	bus power_120vac
-	end power_120vac;
-
-	bus implementation power_120vac.house_wall_power
-	end power_120vac.house_wall_power;
 end lock;
