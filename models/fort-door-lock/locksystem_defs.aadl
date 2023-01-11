@@ -1,0 +1,37 @@
+package locksystem_defs
+public
+
+annex agree {**
+	
+	const DOOR_CLOSED_STATE : int = 0;
+	const DOOR_OPEN_STATE : int = 1; 
+		
+	fun is_open(m: int) : bool = (m = 1) ; 
+	fun is_closed(m: int) : bool = (m = 1); 
+	
+	node initially_true(b: bool) returns (result: bool); 
+	let 
+		result = prev(true, b);
+	tel; 
+	
+	node rising_edge(signal: bool) returns (re: bool);
+	let
+		re = (signal and not prev(signal, false));
+	tel;
+	
+	node timer(set: bool, reset: bool) returns (time_val: int);
+	let
+		time_val = 
+			if reset then 0 else 
+				prev(time_val, 0) + (if set then 1 else 0);
+	tel;
+	
+	node contiguous_interval(signal: bool) returns (time_val: int);
+	let
+		time_val = timer(signal, not signal);
+	tel;
+		
+	
+**};
+
+end locksystem_defs;

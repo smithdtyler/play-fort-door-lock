@@ -1,16 +1,17 @@
 package partslibrary
 public
 
+	with locksystem_defs;
 	with SEI;
 	with Base_Types;
 
-	data temperature_val
+	data temperature_val extends Base_Types::Integer
 	end temperature_val;
 
-	data humidity_val
+	data humidity_val extends Base_Types::Integer
 	end humidity_val;
 
-	data key_press
+	data key_press extends Base_Types::Integer
 	end key_press;
 
 	bus lock_bus
@@ -115,7 +116,8 @@ public
 
 	system board
 		features
-			keypad_in: in event data port partslibrary::key_press;
+			-- do I need to use numerical or boolean values for AGREE?
+			keypad_in: in event data port partslibrary::key_press; 
 			release_button_in: in event data port Base_Types::Boolean;
 			lock_actuator_out: out event data port Base_Types::Boolean;
 			power_access: requires bus access power_5v;
@@ -148,11 +150,8 @@ public
 			power_in: in event data port Base_Types::Boolean;
 			physical_actuation: out event data port Base_Types::Boolean;
 		annex agree {**
-			
-			node rising_edge(signal: bool) returns (re: bool);
-			let
-				re = (signal and not prev(signal, false));
-			tel;
+				
+			-- TODO define generic states here
 			
 			assume has_power "unit has power" : power_in;
 			guarantee lock_actuates "lock when actuated" : prev(actuator_in, false) => physical_actuation;

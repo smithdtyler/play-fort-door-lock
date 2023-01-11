@@ -1,6 +1,8 @@
 package locksystem
 public
 	with partslibrary;
+	with locksystem_defs;
+	with Base_Types;
 
 	system lock_assembly
 	end lock_assembly;
@@ -21,11 +23,35 @@ public
 			lock_assembly_electric_keypad_new_connection: port release_button.release_button_out -> board.release_button_in;
 			lock_assembly_electric_keypad_new_connection2: port keypad.keys_out -> board.keypad_in;
 			lock_assembly_electric_keypad_new_connection3: port board.lock_actuator_out -> Lock_Actuator.actuator_in;
-		--
-		-- 
-		-- TODO AGREE State Machine here
-		-- 
-		-- 
+	--
+	-- 
+	-- TODO AGREE State Machine here
+	-- 
+	-- 
 	end lock_assembly.electric_keypad;
+
+	system door
+		features
+			door_closed: in data port Base_Types::Boolean;
+	end door;
+
+	system implementation door.hinged
+		annex agree {**
+			const DOOR_CLOSED_STATE : int = 0;
+			const DOOR_OPEN_STATE : int = 1;
+			eq shut: bool = locksystem_defs::rising_edge(door_closed);
+		**};
+	end door.hinged;
+
+	system fort
+	end fort;
+
+	system implementation fort.backyard
+		subcomponents
+			door: system door.hinged;
+			lock_assembly: system lock_assembly;
+	end fort.backyard;
+	
+	
 
 end locksystem;
