@@ -31,6 +31,7 @@ public
 
 	-- https://www.adafruit.com/product/4775
 	system implementation controller_board.AdafruitMetroESP32S2
+		-- bus access wifi
 		subcomponents
 			SP32S2: processor Tensilica.ESP32_S2_240MHz;
 			Flash: memory;
@@ -85,19 +86,49 @@ public
 	processor implementation Tensilica.ESP32_S2_240MHz
 	end Tensilica.ESP32_S2_240MHz;
 
-	device Electromagnet
+	-- This specification interprets the presence of power 
+	-- as a data signal. Access to a power bus needs to be 
+	-- specified on a per-implementation basis
+	device ElectronicLock
+		features
+			power : in event data port Base_Types::Boolean;
+			lockengage : out event data port Base_Types::Boolean;
+	end ElectronicLock;
+
+	device Electromagnet extends ElectronicLock
 	end Electromagnet;
 
 	-- https://www.adafruit.com/product/3872
 	device implementation Electromagnet.FiveVoltElectromagnet
+		-- This implementation assumes a metal surface for the lock to adhere to. 
+		annex agree {**
+			eq pwr_removed: bool = locksystem_defs::falling_edge(power);
+			eq sm : bool = false -> 
+				if pwr_removed or not power then 
+					false
+				else 
+					true;
+			assign lockengage = sm;
+		**};
 	end Electromagnet.FiveVoltElectromagnet;
 
-	device SolenoidLock
+	device SolenoidLock extends ElectronicLock
 	end SolenoidLock;
 
 	-- https://www.adafruit.com/product/1512
-	device implementation SolenoidLock.TwelveVoltSolenoid
-	end SolenoidLock.TwelveVoltSolenoid;
+	device implementation SolenoidLock.AdafruitTwelveVoltSolenoid
+		-- This model of solenoid lock disengages when power is applied, and engages when power is removed
+		annex agree {**
+			eq pwr_applied: bool = locksystem_defs::rising_edge(power);
+			eq sm : bool = true -> 
+				if pwr_applied or power then 
+					false
+				else 
+					true;
+			assign lockengage = sm;
+		**};
+		
+	end SolenoidLock.AdafruitTwelveVoltSolenoid;
 
 	system cryptochip
 		features

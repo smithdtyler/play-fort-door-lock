@@ -19,6 +19,12 @@ annex agree {**
 		re = (signal and not prev(signal, false));
 	tel;
 	
+	node falling_edge(signal: bool) returns (re: bool);
+	let
+		-- TDS: I'm not sure if this use of prev is correct
+		re = (not signal and prev(signal, true));
+	tel;
+	
 	node timer(set: bool, reset: bool) returns (time_val: int);
 	let
 		time_val = 

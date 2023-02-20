@@ -44,6 +44,13 @@ public
 	end door.hinged;
 
 	system fort
+		-- TODO how do I write an assertion here that describes behavior of subcomponents? 
+		-- do I need to define variables here, then assign them in implementations? 
+--		annex agree {**
+--			assume has_power "unit has power" : lock.power; -- lock is not visible in this scope
+--			guarantee lock_actuates "lock when actuated" : prev(actuator_in, false) => physical_actuation;
+-- 			guarantee lock opens when power is removed -- todo formalize
+--		**};
 	end fort;
 
 	system implementation fort.backyard
@@ -52,6 +59,16 @@ public
 			lock_assembly: system lock_assembly;
 	end fort.backyard;
 	
+	-- 
 	
+	system implementation fort.lock_demonstrator1
+		subcomponents
+			lock : device partslibrary::Electromagnet.FiveVoltElectromagnet;
+	end fort.lock_demonstrator1;
+	
+	system implementation fort.lock_demonstrator2
+		subcomponents
+			lock : device partslibrary::SolenoidLock.AdafruitTwelveVoltSolenoid;
+	end fort.lock_demonstrator2;
 
 end locksystem;
